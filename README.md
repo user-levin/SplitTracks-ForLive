@@ -64,7 +64,7 @@ ffmpeg -version
 
 ## **Installation**
 
-1. Download the `flac_splitter.py` script.
+1. Download the `SplitTrack-ForLive.py` script.
 2. Save it in a folder of your choice, e.g., `~/Documents/SplitTracks/`.
 
 ---
