@@ -159,5 +159,3 @@ max_file_size_mb=2000
 This project is licensed under the MIT License. You are free to use, modify, and distribute it as needed.
 
 ---
-
-Feel free to reach out with questions or suggestions! 😊
