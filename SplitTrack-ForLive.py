@@ -70,27 +70,37 @@ def process_directory(input_path, output_folder, max_file_size_mb=2000):
                 file_path = os.path.join(root, file)
                 split_audio(file_path, output_folder, max_file_size_mb)
 
-# Funktion: Datei oder Ordner automatisch auswählen
+# Funktion: Datei oder Ordner auswählen
 def select_file_or_folder():
     """Prompt user to select a file or folder."""
     try:
         root = Tk()
         root.withdraw()  # Hauptfenster ausblenden
         root.call('wm', 'attributes', '.', '-topmost', True)  # Dialog in den Vordergrund bringen
-        root.update_idletasks()  # Tkinter GUI aktualisieren
 
-        print(f"{Colors.OKCYAN}Select a file or folder (audio file or directory)...{Colors.ENDC}")
-        path = askopenfilename(filetypes=[("Audio Files", "*.flac *.wav")], title="Select a File or Folder")
+        # Benutzerabfrage
+        print(f"{Colors.OKCYAN}Select a file or folder...{Colors.ENDC}")
+        choice = input(f"{Colors.BOLD}Type 'f' to select a file or 'd' to select a directory: {Colors.ENDC}").strip().lower()
 
-        if not path:  # Wenn keine Datei ausgewählt wurde, nach Ordner fragen
-            path = askdirectory(title="Select a Directory")
-
-        root.destroy()
-
-        if path:
-            return path
+        if choice == 'f':
+            file_path = askopenfilename(filetypes=[("Audio Files", "*.flac *.wav")], title="Select an Audio File")
+            root.destroy()
+            if file_path:
+                return file_path
+            else:
+                print(f"{Colors.FAIL}No file selected. Exiting.{Colors.ENDC}")
+                return None
+        elif choice == 'd':
+            folder_path = askdirectory(title="Select a Directory")
+            root.destroy()
+            if folder_path:
+                return folder_path
+            else:
+                print(f"{Colors.FAIL}No directory selected. Exiting.{Colors.ENDC}")
+                return None
         else:
-            print(f"{Colors.FAIL}No file or folder selected. Exiting.{Colors.ENDC}")
+            print(f"{Colors.FAIL}Invalid choice. Please select 'f' or 'd'.{Colors.ENDC}")
+            root.destroy()
             return None
     except Exception as e:
         print(f"{Colors.FAIL}Error initializing file dialog: {e}{Colors.ENDC}")

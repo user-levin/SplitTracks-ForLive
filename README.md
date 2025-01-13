@@ -154,6 +154,23 @@ max_file_size_mb=2000
 
 ---
 
+
+### **How to Avoid Gaps When Importing Split Files into Ableton Live**
+When you import the split audio files directly into Ableton Live, they may appear on a single track with unwanted gaps between the clips. To resolve this issue, follow these steps:
+
+# **Import into the Session View First!**
+
+Drag all the split files into the Session View (vertical clip view).
+This ensures the clips are neatly organized without gaps.
+Select All Clips:
+
+Highlight all the clips you've just imported into the Session View.
+Drag into the Arrangement View:
+
+Once all clips are selected, drag them to the Arrangement View (horizontal timeline view).
+The clips will align seamlessly without gaps.
+
+
 ## **License**
 
 This project is licensed under the MIT License. You are free to use, modify, and distribute it as needed.
