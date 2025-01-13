@@ -74,7 +74,7 @@ ffmpeg -version
 ### **1. Run the Script**
 Run the script using Python:
 ```bash
-python3 flac_splitter.py
+python3 SplitTrack-ForLive.py
 ```
 
 ### **2. Select Mode**
