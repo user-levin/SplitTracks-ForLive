@@ -1,15 +1,15 @@
-# SplitTracks-ForLive
- 
-This Python script was developed specifically to address the 2GB file size limitation in Ableton Live, which prevents loading large FLAC or WAV files. The script splits audio files into smaller chunks, ensuring they remain compatible with Ableton's requirements. It offers an easy way to select either a single file or an entire folder for automatic processing, making it ideal for preparing audio files for seamless integration into Ableton Live projects.
+# **SplitTracks-ForLive**
+
+This Python script was developed specifically to address the **2GB file size limitation in Ableton Live**, which prevents loading large FLAC or WAV files. The script splits audio files into smaller chunks, ensuring compatibility with Ableton’s requirements. You can easily select either a single file or an entire folder for automatic processing, making this tool ideal for preparing audio files for seamless integration into Ableton Live projects.
 
 ---
 
 ## **Features**
 
-- **Supports FLAC and WAV**: Splits audio files into smaller chunks based on a maximum file size.
+- **Supports FLAC and WAV**: Splits audio files into smaller chunks based on a configurable maximum file size.
 - **Process Folders or Files**: Choose individual files or complete folders for processing.
-- **User-Friendly Finder/Explorer Dialog**: Select files directly via macOS Finder or Windows Explorer.
-- **Automatic Progress Tracking**: Displays progress during the splitting process.
+- **User-Friendly Interface**: Select files or folders directly via Finder (macOS) or Explorer (Windows).
+- **Automatic Progress Tracking**: Visual progress is displayed during file processing.
 
 ---
 
@@ -34,7 +34,7 @@ Ensure Python 3.7 or newer is installed.
     ```
 
 ### **2. Required Python Packages**
-Install the necessary packages using:
+Install the required packages using:
 ```bash
 python3 -m pip install pydub tqdm
 ```
@@ -65,7 +65,7 @@ ffmpeg -version
 ## **Installation**
 
 1. Download the `flac_splitter.py` script.
-2. Save it in a folder of your choice, e.g., `~/Documents/AudioSplitter/`.
+2. Save it in a folder of your choice, e.g., `~/Documents/SplitTracks/`.
 
 ---
 
@@ -77,19 +77,36 @@ Run the script using Python:
 python3 flac_splitter.py
 ```
 
-### **2. Choose a File or Folder**
-The script will prompt you to select:
-- Type `f` to choose a single FLAC or WAV file.
-- Type `d` to choose a folder containing multiple files.
-
-The Finder/Explorer window will open, allowing you to select the desired file or folder.
+### **2. Select Mode**
+When prompted:
+- **Type `f`** to choose a single FLAC or WAV file.
+- **Type `d`** to choose a folder containing multiple FLAC or WAV files.
 
 ### **3. Process the Files**
-- The script automatically creates a `Cut` subfolder in the same directory as the selected files or folder.
-- The split files will be saved in the `Cut` folder.
+- The script automatically creates a `Cut` subfolder in the same directory as the selected file or folder.
+- All split files are saved in this `Cut` folder.
 
 ### **4. Track Progress**
-The script displays the splitting progress for each file.
+The script displays progress for each file, ensuring transparency during processing.
+
+---
+
+## **How to Avoid Gaps When Importing into Ableton Live**
+
+When you import the split files into Ableton Live, they might appear on a single track with unwanted gaps between clips. To fix this:
+
+1. **Import into the Session View First**:
+   - Drag all split files into the **Session View** (vertical clip view) instead of directly into the Arrangement View.
+   - This ensures the clips are neatly organized without gaps.
+
+2. **Select All Clips**:
+   - Highlight all clips imported into the Session View.
+
+3. **Drag to Arrangement View**:
+   - Drag the selected clips to the **Arrangement View** (horizontal timeline view).
+   - The clips will align seamlessly without gaps.
+
+This method ensures smooth playback without interruptions in your Ableton Live project.
 
 ---
 
@@ -134,14 +151,14 @@ All tasks completed successfully!
      ```
 
 2. **`FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'`**
-   - FFmpeg is not installed or not in the system's `PATH`.
+   - FFmpeg is not installed or not in your system's `PATH`.
    - Verify installation:
      ```bash
      ffmpeg -version
      ```
 
 3. **Finder/Explorer Opens in Background**
-   - Ensure the dialog is initialized correctly. The script automatically handles this, ensuring the dialog appears in the foreground.
+   - Ensure the Finder/Explorer dialog is brought to the foreground. The script handles this automatically.
 
 ---
 
@@ -153,23 +170,6 @@ max_file_size_mb=2000
 ```
 
 ---
-
-
-### **How to Avoid Gaps When Importing Split Files into Ableton Live**
-When you import the split audio files directly into Ableton Live, they may appear on a single track with unwanted gaps between the clips. To resolve this issue, follow these steps:
-
-# **Import into the Session View First!**
-
-Drag all the split files into the Session View (vertical clip view).
-This ensures the clips are neatly organized without gaps.
-Select All Clips:
-
-Highlight all the clips you've just imported into the Session View.
-Drag into the Arrangement View:
-
-Once all clips are selected, drag them to the Arrangement View (horizontal timeline view).
-The clips will align seamlessly without gaps.
-
 
 ## **License**
 
